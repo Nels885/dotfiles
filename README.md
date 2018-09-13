@@ -1,13 +1,13 @@
 # A propos
 
-Ce dépôt est un fork de celui de Grafikart pour la configuration de l'environnement i3wm sous Ubuntu 16.04.4 LTS pour mon Laptop HP ProBook G3 530.
+Ce dépôt est un fork de celui de Grafikart pour la configuration de l'environnement i3wm sous Ubuntu 18.04 LTS pour mon Laptop HP ProBook G3 530.
 Celui-ci comporte quelques différences au niveau visuel ainsi qu'au niveau des logiciels (terminal termite ou terminator, pycharm pour Python, etc...).
 
 [![Aperçu](screenshots/screenshot.png)](screenshots/screenshot.png)
 
 La liste des paquets installés sur ma machine sont disponibles dans le fichier package.list. Les paquets AUR sont en fin de liste
 
-# Installation i3wm sous Ubuntu 16.04 LTS
+# Installation i3wm sous Ubuntu 18.04 LTS
 
 ```
 $ sudo apt update && sudo apt dist-upgrade
@@ -26,7 +26,7 @@ $ make
 $ sudo make install
 ```
 
-* Ajout de polybar:
+* Ajout de polybar Ubuntu 16.04:
 ```
 $ wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
 $ sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
@@ -35,6 +35,22 @@ $ sudo apt install polybar
 $ mkdir ~/.config/polybar
 $ gzip -dc /usr/share/doc/polybar/config.gz > ~/.config/polybar/config
 
+```
+
+* Ajout de polybar Ubuntu 18.04:
+```
+$ sudo apt-get install libxcb-ewmh-dev
+$ sudo apt install python-xcbgen
+$ git clone --branch 3.2 --recursive https://github.com/jaagr/polybar
+$ mkdir polybar/build
+$ cd polybar/build
+$ cmake ..
+$ sudo make install
+```
+
+* Recharger les couleurs de Xresources
+```
+$ xrdb .Xresources 
 ```
 
 * Réglage luminosité:
