@@ -14,7 +14,7 @@ $ sudo apt update && sudo apt dist-upgrade
 $ sudo apt install i3 thunar rofi compton lxappearance feh inxi fonts-font-awesome
 ```
 
-* Installation du Fork de i3 (version 4.15.0.1):
+* Installation du Fork de i3 (version 4.16.1):
 ```
 $ git clone https://www.github.com/Airblader/i3 i3-gaps
 $ cd i3-gaps/
@@ -37,14 +37,15 @@ $ gzip -dc /usr/share/doc/polybar/config.gz > ~/.config/polybar/config
 
 ```
 
-* Ajout de polybar Ubuntu 18.04:
+* Ajout de polybar v3.3.0 Ubuntu 18.04:
 ```
 $ sudo apt-get install libxcb-ewmh-dev
 $ sudo apt install python-xcbgen
-$ git clone --branch 3.2 --recursive https://github.com/jaagr/polybar
+$ git clone --recursive https://github.com/jaagr/polybar
 $ mkdir polybar/build
 $ cd polybar/build
 $ cmake ..
+$ make -j$(nproc)
 $ sudo make install
 ```
 
